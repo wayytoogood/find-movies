@@ -11,14 +11,12 @@ const Movies = () => {
     <>
       <section className='movies'>
         {displayedOnes.map((item) => {
-          let { imdbID, Title, Year, Poster } = item
-          if (Poster === 'N/A') {
-            Poster = url
-          }
+          const { imdbID, Title, Year, Poster } = item
+
           return (
             <Link to={`/movies/${imdbID}`} key={imdbID} className='movie'>
               <article>
-                <img src={Poster} alt={Title} />
+                <img src={Poster === 'N/A' ? url : Poster} alt={Title} />
                 <div className='movie-info'>
                   <h4 className='title'>{Title}</h4>
                   <p>{Year}</p>

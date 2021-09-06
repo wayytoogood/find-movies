@@ -33,15 +33,11 @@ const SingleMovie = () => {
     return <div className='loading'></div>
   }
 
-  let { Title, Year, Actors, Plot, Poster, imdbRating, Type } = movie
-
-  if (Poster === 'N/A') {
-    Poster = defaultImage
-  }
+  const { Title, Year, Actors, Plot, Poster, imdbRating, Type } = movie
 
   return (
     <section className='single-movie'>
-      <img src={Poster} alt='' />
+      <img src={Poster === 'N/A' ? defaultImage : Poster} alt='' />
       <div className='single-movie-info'>
         <h2>{Title}</h2>
         <p>{Plot}</p>
